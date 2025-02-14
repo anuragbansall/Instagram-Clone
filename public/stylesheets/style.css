@@ -9,5 +9,5 @@ a:focus {
 }
 
 .container {
-  @apply md:max-w-[20rem] mx-auto;
+  @apply md:max-w-[25rem] mx-auto;
 }

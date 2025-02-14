@@ -9,7 +9,6 @@ passport.use(new localStrategy(userModel.authenticate()));
 const upload = require("./multer");
 const utils = require("../utils/utils");
 
-
 // GET
 router.get("/", function (req, res) {
   res.render("index", { footer: false });
@@ -36,17 +35,17 @@ router.get("/feed", isLoggedIn, async function (req, res) {
     .findOne({ username: req.session.passport.user })
     .populate("posts");
 
-  let stories = await storyModel.find({ user: { $ne: user._id } })
-  .populate("user");
+  let stories = await storyModel
+    .find({ user: { $ne: user._id } })
+    .populate("user");
 
   var uniq = {};
-  var filtered = stories.filter(item => {
-    if(!uniq[item.user.id]){
+  var filtered = stories.filter((item) => {
+    if (!uniq[item.user.id]) {
       uniq[item.user.id] = " ";
       return true;
-    }
-    else return false;
-  })
+    } else return false;
+  });
 
   let posts = await postModel.find().populate("user");
 
@@ -211,6 +210,7 @@ router.post("/register", function (req, res) {
   });
 
   userModel.register(user, req.body.password).then(function (registereduser) {
+    // this will log the user in
     passport.authenticate("local")(req, res, function () {
       res.redirect("/profile");
     });

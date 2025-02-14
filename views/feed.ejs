@@ -1,4 +1,5 @@
-<% include ./partials/header.ejs %>
+<%- include('partials/header') %>
+
 <div class="w-full min-h-screen bg-zinc-900 text-white py-5">
   <div class="w-full px-4 flex items-center justify-between">
     <img class="w-1/4" src="/images/logo.png" alt="" />
@@ -11,7 +12,7 @@
     <a href="/story">
       <div class="circle flex-shrink-0">
         <div
-          class="gradient w-[4rem] h-[4rem] bg-sky-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
+          class="gradient w-[4rem] h-[4rem] bg-zinc-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
         >
           <div class="inner w-[92%] h-[92%] rounded-full overflow-hidden">
             <img
@@ -27,7 +28,7 @@
     <a href="/story/<%= story.id %>">
       <div class="circle flex-shrink-0">
         <div
-          class="gradient w-[4rem] h-[4rem] bg-sky-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
+          class="gradient w-[4rem] h-[4rem] bg-zinc-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
         >
           <div class="inner w-[92%] h-[92%] rounded-full overflow-hidden">
             <img
@@ -45,7 +46,7 @@
     <% posts.reverse().forEach(function(post){ %>
     <div class="post mt-10 w-full min-h-[50vh]">
       <div class="title px-4 flex items-center gap-2">
-        <div class="w-[2rem] h-[2rem] bg-sky-100 rounded-full overflow-hidden">
+        <div class="w-[2rem] h-[2rem] bg-zinc-100 rounded-full overflow-hidden">
           <img
             class="w-full h-full object-cover"
             src="/images/uploads/<%= post.user.picture %>"
@@ -55,7 +56,7 @@
         <h4 class="text-sm"><%= post.user.username %></h4>
         <h6 class="text-xs opacity-30"><%= dater(new Date(post.date)) %></h6>
       </div>
-      <div class="relative w-full h-96 mt-4 bg-sky-100 overflow-hidden">
+      <div class="relative w-full h-96 mt-4 bg-zinc-100 overflow-hidden">
         <img
           data-postid="<%= post.id %>"
           class="postimg w-full h-full object-cover"
@@ -209,4 +210,4 @@
   });
 </script>
 
-<% include ./partials/footer.ejs %>
+<%- include('partials/footer') %>
