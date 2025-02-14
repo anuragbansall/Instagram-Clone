@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.story::-webkit-scrollbar {
+  display: none;
+}
+
+a:focus {
+  outline: none !important;
+}
+
+.container {
+  @apply md:max-w-[20rem] mx-auto;
+}
